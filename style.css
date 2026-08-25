@@ -1,0 +1,680 @@
+:root {
+  --navy: #0b1f3a;
+  --blue: #2563eb;
+  --blue-light: #dbeafe;
+  --ink: #172033;
+  --muted: #5d6878;
+  --paper: #f7fafc;
+  --white: #ffffff;
+  --line: #dce5f0;
+  --green: #0f9d73;
+  --yellow: #e6a700;
+  --red: #dd4b39;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #b97d7b;
+  background: #f9f6f4;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+header {
+  background:#928e5e;
+  color: #575527;
+}
+
+nav {
+  max-width: 1100px;
+  margin: auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+nav a {
+  color: #575527;
+  text-decoration: none;
+}
+
+.logo {
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.hero,
+.section,
+.disclaimer {
+  max-width: 1100px;
+  margin: auto;
+  padding: 72px 24px;
+}
+
+.hero {
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero h1 {
+  max-width: 850px;
+  margin: 8px 0 14px;
+  font-size: clamp(2.2rem, 6vw, 4.6rem);
+  line-height: 1.06;
+}
+
+.hero p:not(.hehe) {
+  max-width: 700px;
+  color: #cb8095;
+  font-size: 1.15rem;
+}
+
+.hehe {
+  margin: 0;
+  color: #cb8095;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.button,
+.secondary-button,
+.scenario {
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 16px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.button {
+  display: inline-block;
+  width: fit-content;
+  margin-top: 16px;
+  background: #928e5e;
+  color: #575527;
+  text-decoration: none;
+}
+
+.button:hover,
+.scenario:hover,
+.secondary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.18);
+}
+
+.disclaimer {
+  padding-top: 26px;
+  padding-bottom: 26px;
+  background: #fff8df;
+  border-left: 6px solid #f2b705;
+}
+
+.disclaimer h2 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.disclaimer p {
+  margin: 5px 0 0;
+}
+
+.section {
+  border-bottom: 1px solid var(--line);
+}
+
+.section h2 {
+  margin-top: 6px;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.15;
+}
+
+.scenario-buttons {
+  display: flex;
+  gap: 12px;
+  margin: 28px 0;
+  flex-wrap: wrap;
+}
+
+.scenario {
+  background: #e5e6b5;
+  border: 1px solid var(--line);
+  color: black;
+  text-align: left;
+}
+
+.scenario.active {
+  background: #928e5e;
+  border-color: #928e5e;
+  color: #575527;
+}
+
+.simulator-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 22px;
+}
+
+.controls-card,
+.visual-card,
+.results-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(26, 45, 77, 0.06);
+}
+
+.controls-card h3,
+.visual-card h3,
+.results-card h3 {
+  margin-top: 0;
+}
+
+.controls-card label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 24px 0 8px;
+  font-weight: 700;
+}
+
+.controls-card label span {
+  color: var(--blue);
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--blue);
+  cursor: pointer;
+}
+
+.secondary-button {
+  width: 100%;
+  margin-top: 32px;
+  background: var(--blue-light);
+  color: #173f87;
+}
+
+.visual-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.status-pill {
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: #e8f7ef;
+  color: #17693d;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.status-pill.medium {
+  background: #fff4cf;
+  color: #8a5a00;
+}
+
+.status-pill.high {
+  background: #fde8e7;
+  color: #a52a22;
+}
+
+.cns-visual {
+  position: relative;
+  min-height: 400px;
+  margin-top: 18px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #eef7ff, #e6f7f1);
+  border: 1px solid #d8e8f4;
+}
+
+.bloodstream-label {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  color: #50647a;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.virus-zone {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 46%;
+  height: 275px;
+  border-radius: 0 160px 160px 0;
+  background: linear-gradient(90deg, #cadcf4, #9dc4e7);
+  overflow: hidden;
+  transition: background 0.4s ease;
+}
+
+.virus {
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffd2d2 0 11%, #e94545 12% 55%, #8d1c1c 56% 100%);
+  box-shadow: 0 0 12px rgba(210, 38, 38, 0.55);
+  animation: float-virus 4s linear infinite;
+  opacity: 0.55;
+}
+
+.virus::before,
+.virus::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #8d1c1c;
+  border-radius: 50%;
+}
+
+.virus::before {
+  top: -3px;
+  left: 8px;
+}
+
+.virus::after {
+  bottom: -3px;
+  right: 6px;
+}
+
+.v1 { top: 25%; left: 7%; animation-delay: 0s; }
+.v2 { top: 60%; left: 35%; animation-delay: -1s; }
+.v3 { top: 40%; left: 60%; animation-delay: -2s; }
+.v4 { top: 72%; left: 12%; animation-delay: -3s; }
+.v5 { top: 12%; left: 52%; animation-delay: -1.5s; }
+
+@keyframes float-virus {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(42px, -18px) rotate(180deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+.bbb {
+  position: absolute;
+  z-index: 2;
+  top: 50px;
+  left: 43%;
+  width: 18px;
+  height: 290px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #3d92b8;
+  box-shadow: 0 0 18px rgba(26, 111, 152, 0.35);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.bbb span {
+  width: 260px;
+  color: #24506b;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-align: center;
+  transform: rotate(-90deg);
+}
+
+.brain {
+  position: absolute;
+  z-index: 1;
+  top: 53px;
+  right: 6%;
+  width: 45%;
+  height: 285px;
+  border-radius: 48% 52% 50% 44% / 55% 42% 58% 45%;
+  background:
+    radial-gradient(circle at 33% 32%, rgba(255, 255, 255, 0.65), transparent 22%),
+    radial-gradient(circle at 60% 65%, rgba(255, 255, 255, 0.3), transparent 25%),
+    #8bb8e8;
+  box-shadow: 0 0 0 12px rgba(69, 135, 204, 0.16), 0 0 45px rgba(69, 135, 204, 0.34);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.brain::after {
+  content: "";
+  position: absolute;
+  top: 7%;
+  left: 15%;
+  width: 65%;
+  height: 75%;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}
+
+.brain-label {
+  position: absolute;
+  z-index: 3;
+  top: 18px;
+  left: 25px;
+  color: #234365;
+  font-weight: 800;
+}
+
+.microglia {
+  position: absolute;
+  z-index: 4;
+  top: 38%;
+  left: 32%;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #dffcf1, #19a974 58%, #086b4d);
+  box-shadow: 0 0 13px rgba(25, 169, 116, 0.6);
+  animation: pulse-cell 2s ease-in-out infinite;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.microglia::before,
+.microglia::after {
+  content: "";
+  position: absolute;
+  width: 27px;
+  height: 5px;
+  border-radius: 10px;
+  background: currentColor;
+  color: #0a7655;
+  top: 17px;
+  left: 5px;
+}
+
+.microglia::before {
+  transform: rotate(48deg);
+}
+
+.microglia::after {
+  transform: rotate(-48deg);
+}
+
+.microglia.second {
+  top: 61%;
+  left: 65%;
+  transform: scale(0.8);
+  animation-delay: -0.8s;
+}
+
+.microglia.third {
+  top: 22%;
+  left: 61%;
+  transform: scale(0.65);
+  animation-delay: -1.4s;
+}
+
+@keyframes pulse-cell {
+  0%, 100% { filter: brightness(0.9); }
+  50% { filter: brightness(1.25); }
+}
+
+.neuron {
+  position: absolute;
+  z-index: 3;
+  width: 120px;
+  height: 54px;
+  transition: opacity 0.4s ease;
+}
+
+.neuron-one {
+  bottom: 52px;
+  left: 20px;
+}
+
+.neuron-two {
+  top: 92px;
+  right: 8px;
+  transform: scale(0.75) rotate(-12deg);
+}
+
+.cell-body {
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fef1bc;
+  box-shadow: 0 0 10px rgba(254, 220, 90, 0.9);
+}
+
+.axon {
+  position: absolute;
+  left: 24px;
+  top: 25px;
+  width: 92px;
+  height: 4px;
+  border-radius: 4px;
+  background: #fef1bc;
+  box-shadow: 0 0 8px rgba(254, 220, 90, 0.75);
+}
+
+.brain-note {
+  position: absolute;
+  z-index: 3;
+  bottom: 18px;
+  right: 16px;
+  max-width: 180px;
+  color: #234365;
+  font-size: 0.71rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+.cns-visual.medium .virus-zone {
+  background: linear-gradient(90deg, #c9dbf4, #96b7dc);
+}
+
+.cns-visual.medium .virus {
+  opacity: 0.78;
+  animation-duration: 3s;
+}
+
+.cns-visual.medium .bbb {
+  background: #e1a500;
+  box-shadow: 0 0 22px rgba(225, 165, 0, 0.6);
+}
+
+.cns-visual.medium .brain {
+  background:
+    radial-gradient(circle at 33% 32%, rgba(255, 255, 255, 0.65), transparent 22%),
+    radial-gradient(circle at 60% 65%, rgba(255, 212, 104, 0.45), transparent 25%),
+    #d3ad58;
+  box-shadow: 0 0 0 12px rgba(222, 166, 35, 0.17), 0 0 55px rgba(225, 165, 0, 0.52);
+}
+
+.cns-visual.medium .microglia {
+  background: radial-gradient(circle at 30% 30%, #fff3cc, #ef9b15 58%, #a65105);
+  box-shadow: 0 0 18px rgba(239, 155, 21, 0.8);
+  color: #a65105;
+}
+
+.cns-visual.medium .neuron {
+  opacity: 0.72;
+}
+
+.cns-visual.high .virus-zone {
+  background: linear-gradient(90deg, #e5c6dd, #bd84b1);
+}
+
+.cns-visual.high .virus {
+  opacity: 1;
+  animation-duration: 1.7s;
+  transform: scale(1.16);
+}
+
+.cns-visual.high .bbb {
+  background: #d43b31;
+  box-shadow: 0 0 28px rgba(212, 59, 49, 0.75);
+}
+
+.cns-visual.high .brain {
+  background:
+    radial-gradient(circle at 33% 32%, rgba(255, 239, 192, 0.65), transparent 22%),
+    radial-gradient(circle at 60% 65%, rgba(255, 99, 71, 0.5), transparent 25%),
+    #b95b57;
+  box-shadow: 0 0 0 12px rgba(212, 59, 49, 0.2), 0 0 66px rgba(212, 59, 49, 0.72);
+}
+
+.cns-visual.high .microglia {
+  background: radial-gradient(circle at 30% 30%, #fff2cc, #e04c28 58%, #881d12);
+  box-shadow: 0 0 23px rgba(224, 76, 40, 0.95);
+  color: #881d12;
+  animation-duration: 0.9s;
+}
+
+.cns-visual.high .neuron {
+  opacity: 0.4;
+}
+
+.results-card {
+  margin-top: 22px;
+}
+
+.results-heading {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 25px;
+}
+
+.results-heading p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.metric {
+  margin: 18px 0;
+}
+
+.metric-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 7px;
+}
+
+.metric-label strong {
+  color: var(--blue);
+}
+
+.bar-background {
+  height: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e8edf3;
+}
+
+.bar {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.45s ease;
+}
+
+.viral-bar { background: linear-gradient(90deg, #df4950, #9b2330); }
+.reservoir-bar { background: linear-gradient(90deg, #a855f7, #6d28d9); }
+.bbb-bar { background: linear-gradient(90deg, #2b9cc5, #166582); }
+.microglia-bar { background: linear-gradient(90deg, #f4ae2b, #d66a18); }
+.inflammation-bar { background: linear-gradient(90deg, #f17444, #cf2e2e); }
+.burden-bar { background: linear-gradient(90deg, #485aeb, #172a85); }
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 65px;
+}
+
+.wide-text {
+  max-width: 800px;
+}
+
+footer {
+  padding: 32px 24px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .simulator-grid,
+  .results-heading,
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .brain {
+    right: 3%;
+    width: 48%;
+  }
+
+  .bbb {
+    left: 43%;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero,
+  .section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .cns-visual {
+    min-height: 360px;
+  }
+
+  .brain {
+    top: 65px;
+    height: 245px;
+  }
+
+  .bbb {
+    top: 62px;
+    height: 250px;
+  }
+
+  .virus-zone {
+    top: 68px;
+    height: 240px;
+  }
+
+  .brain-note {
+    display: none;
+  }
+}

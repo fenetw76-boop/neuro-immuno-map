@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuroImmune Map</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a class="logo" href="index.html">NeuroImmune Map</a>
+
+      <div class="nav-links">
+        <a href="#simulator">Simulator</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="sources.html">Sources</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="hehe">Life sciences × interactive web design</p>
+      <h1>Explore a conceptual model of HIV, immune activation, and the brain.</h1>
+      <p>
+        Adjust the learning scenario to see an illustrative pathway from viral
+        activity to central nervous system inflammation.
+      </p>
+      <a class="button" href="#simulator">Open the simulator</a>
+    </section>
+
+    <section class="disclaimer">
+      <h2>Educational simulation only</h2>
+      <p>
+        This is a student-built conceptual model based on research literature.
+        It is not real patient data, medical advice, a diagnostic tool, or a
+        prediction of an individual’s health outcome based off of literature research.
+      </p>
+    </section>
+
+    <section id="simulator" class="section">
+      <p class="hehe">Interactive learning tool</p>
+      <h2>Change the scenario</h2>
+      <p>
+        Move the sliders. The outputs use illustrative equations designed for
+        science education, not clinical use.
+      </p>
+
+      <div class="scenario-buttons">
+        <button class="scenario" data-scenario="early">Earlier ART + sustained suppression</button>
+        <button class="scenario" data-scenario="delayed">Delayed ART + partial suppression</button>
+        <button class="scenario" data-scenario="high">High modeled inflammatory state</button>
+      </div>
+
+      <div class="simulator-grid">
+        <div class="controls-card">
+          <h3>Inputs</h3>
+
+          <label for="art-timing">
+            ART timing
+            <span id="art-timing-value">Early</span>
+          </label>
+          <input id="art-timing" type="range" min="0" max="100" value="20">
+
+          <label for="suppression">
+            Viral suppression
+            <span id="suppression-value">Sustained</span>
+          </label>
+          <input id="suppression" type="range" min="0" max="100" value="85">
+
+          <label for="immune-activation">
+            Immune activation
+            <span id="immune-activation-value">Low</span>
+          </label>
+          <input id="immune-activation" type="range" min="0" max="100" value="25">
+
+          <button id="reset-button" class="secondary-button">Reset scenario</button>
+        </div>
+
+        <div class="visual-card">
+          <div class="visual-header">
+            <h3>Illustrative CNS pathway</h3>
+            <span id="status-pill" class="status-pill">Lower modeled pressure</span>
+          </div>
+
+          <div id="cns-visual" class="cns-visual low">
+            <div class="bloodstream-label">Bloodstream</div>
+
+            <div id="virus-zone" class="virus-zone">
+              <span class="virus v1"></span>
+              <span class="virus v2"></span>
+              <span class="virus v3"></span>
+              <span class="virus v4"></span>
+              <span class="virus v5"></span>
+            </div>
+
+            <div id="bbb" class="bbb">
+              <span>Blood–brain barrier</span>
+            </div>
+
+            <div id="brain" class="brain">
+              <div class="brain-label">Brain</div>
+
+              <div id="microglia-1" class="microglia"></div>
+              <div id="microglia-2" class="microglia second"></div>
+              <div id="microglia-3" class="microglia third"></div>
+
+              <div class="neuron neuron-one">
+                <span class="cell-body"></span>
+                <span class="axon"></span>
+              </div>
+
+              <div class="neuron neuron-two">
+                <span class="cell-body"></span>
+                <span class="axon"></span>
+              </div>
+
+              <div class="brain-note">Microglia · neurons · inflammatory signaling</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-card">
+        <div class="results-heading">
+          <h3>Modeled pathway outputs</h3>
+          <p id="scenario-summary">
+            Earlier ART and sustained suppression produce lower illustrative pathway pressure in this model.
+          </p>
+        </div>
+
+        <div class="metric">
+          <div class="metric-label">
+            <span>Viral activity</span>
+            <strong id="viral-activity-number">15</strong>
+          </div>
+          <div class="bar-background">
+            <div id="viral-activity-bar" class="bar viral-bar"></div>
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-label">
+            <span>CNS reservoir pressure</span>
+            <strong id="reservoir-number">27</strong>
+          </div>
+          <div class="bar-background">
+            <div id="reservoir-bar" class="bar reservoir-bar"></div>
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-label">
+            <span>Blood–brain barrier stress</span>
+            <strong id="bbb-number">23</strong>
+          </div>
+          <div class="bar-background">
+            <div id="bbb-bar" class="bar bbb-bar"></div>
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-label">
+            <span>Microglial activation</span>
+            <strong id="microglia-number">22</strong>
+          </div>
+          <div class="bar-background">
+            <div id="microglia-bar" class="bar microglia-bar"></div>
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-label">
+            <span>Neuroinflammatory pressure</span>
+            <strong id="inflammation-number">22</strong>
+          </div>
+          <div class="bar-background">
+            <div id="inflammation-bar" class="bar inflammation-bar"></div>
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-label">
+            <span>Overall conceptual pathway burden</span>
+            <strong id="burden-number">24</strong>
+          </div>
+          <div class="bar-background">
+            <div id="burden-bar" class="bar burden-bar"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="section two-column">
+      <div>
+        <p class="hehe">Interpret carefully</p>
+        <h2>What the simulator means</h2>
+        <p>
+          The simulator shows a simplified educational pathway: viral activity
+          and immune activation may contribute to blood–brain barrier stress,
+          microglial activation, and neuroinflammation.
+        </p>
+      </div>
+
+      <div>
+        <p class="hehe">What it does not mean</p>
+        <h2>What the simulator cannot do</h2>
+        <p>
+          It cannot diagnose HIV-associated neurocognitive disorders, predict
+          symptoms, estimate an individual’s risk, recommend treatment, or
+          replace qualified medical care.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="hehe">About this project</p>
+      <h2>From HIV reservoir research to digital science communication</h2>
+      <p class="wide-text">
+        I built NeuroImmune Map as a student educational project to explore how
+        concepts from HIV reservoir and neuroimmune research can be communicated
+        through an interactive digital model. The equations and values are
+        deliberately illustrative and transparent, not validated biomedical or
+        clinical calculations.
+      </p>
+      <a class="button" href="sources.html">Read sources and limitations</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>Created by Fenet Lencho · Educational project · <a href="sources.html">Sources and limitations</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
